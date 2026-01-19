@@ -2,39 +2,33 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <title>Khảo sát độ hài lòng</title>
+    <title>Khảo sát mức độ hài lòng</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="survey-box" id="box">
-      <h3>
-        Bạn có hài lòng khi làm việc với Uyên Huỳnh không?
-      </h3>
-
-      <div class="option" id="opt1" style="left: 30px; top: 200px">
-        <div class="reaction" data-text="tui ổn nè 😎">tui ổn nè 😎</div>
-        <span>Rất hài lòng</span>
-      </div>
-
-      <div class="option" id="opt2" style="left: 270px; top: 200px">
-        <div class="reaction" data-text="né ra 😱">né ra 😱</div>
-        <span>Bình thường</span>
-      </div>
-
-      <div class="option" id="opt3" style="left: 30px; top: 280px">
-        <div class="reaction" data-text="cứu tôi với 😭">cứu tôi với 😭</div>
-        <span>Không hài lòng</span>
-      </div>
-
-      <div class="option" id="opt4" style="left: 270px; top: 280px">
-        <div class="reaction" data-text="tha cho tui 🥹">tha cho tui 🥹</div>
-        <span>Rất không hài lòng</span>
-      </div>
-
-      <div id="result">🎉 Chúc mừng! Tuyệt lắm em zai!.</div>
+    <div class="login-container">
+      <h2>Đăng nhập</h2>
+      <form id="loginForm">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" required />
+        <button type="submit">Đăng nhập</button>
+      </form>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-    <script src="script.js"></script>
+    <script >
+      const loginForm = document.getElementById('loginForm');
+
+      loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+       
+        if (username.trim() !== "") {
+          localStorage.setItem("username", username);
+          window.location.href = "main.html"; // chuyển đến trang chính
+        } else {
+          alert("Vui lòng nhập tên của bạn.");
+        }
+      });
+    </script>
   </body>
 </html>

@@ -11,6 +11,7 @@ const sfx = new Howl({
   volume: 0.5,
 });
 
+
 box.addEventListener("mousemove", (e) => {
   if (frozen) return;
 
@@ -79,8 +80,10 @@ options.forEach((opt) => {
     if (frozen) return;
     if (opt.id === allowedOptionId) {
       frozen = true;
-      // document.getElementById("result").style.display = "block";
-      alert("Tuyệt lắm em zai!!");
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").style.color = "#ff0000ff"; // Đặt màu đỏ cho text
+
+      // alert("Tuyt zô cùng!!");
     } else {
       alert("Không được chọn tui đâu 😖");
     }
